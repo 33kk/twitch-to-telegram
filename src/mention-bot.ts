@@ -18,7 +18,10 @@ export default class MentionBot {
 		}
 		this.notificationDb = JSON.parse(readFileSync(dbPath, "utf-8"));
 		this.bot.bot.start((c) => {
-			this.bot.sendMessage(c.chat.id.toString(), "la mia Pepega");
+			this.bot.sendMessage(c.chat.id.toString(), "Commands: /add [username], /list, /remove [element]");
+		});
+		this.bot.bot.command("help", (c) => {
+			this.bot.sendMessage(c.chat.id.toString(), "Commands: /add [username], /list, /remove [element]");
 		});
 		this.bot.bot.command("add", (ctx) => {
 			const args = ctx.message.text.slice(5).toLowerCase();
