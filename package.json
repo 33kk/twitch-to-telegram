@@ -1,0 +1,20 @@
+{
+    "name": "tw-to-tg",
+    "version": "1.0.0",
+    "description": "Twitch to Telegram logger and mention notifier",
+    "main": "index.js",
+    "scripts": {
+        "eslint": "eslint ./src/*.ts",
+        "eslint:fix": "pnpm run eslint -- --fix",
+        "build": "tsc",
+        "start": "tsc && cd ../dist && node ./index.js"
+    },
+    "author": "33kk",
+    "license": "MIT",
+    "dependencies": {
+        "@types/node": "^14.0.5",
+        "telegraf": "^3.38.0",
+        "twitch": "^4.0.10",
+        "twitch-chat-client": "^4.0.10"
+    }
+}
