@@ -49,7 +49,7 @@ export default class MentionBot {
 		});
 		this.bot.bot.command("list", (ctx) => {
 			if (this.notificationDb[ctx.chat.id]) {
-				this.bot.sendMessage(ctx.chat.id.toString(), this.notificationDb[ctx.chat.id].join("\n"));
+				this.bot.sendMessage(ctx.chat.id.toString(), `List:\n${this.notificationDb[ctx.chat.id].join("\n")}`);
 			}
 			else {
 				this.bot.sendMessage(ctx.chat.id.toString(), "Nothing found.");
