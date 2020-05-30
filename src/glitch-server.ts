@@ -6,4 +6,8 @@ app.get("/", (_req, res) => {
 	res.send("Ok");
 });
 
+app.listen(process.env.PORT, () => {
+    console.log("App is listening on port " + process.env.PORT);
+});
+
 require("./index");
