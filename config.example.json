@@ -1,0 +1,12 @@
+{
+    "telegram_notification_bot_token": "1234567890:ABCdEfFASDJAKLSDJjfaspiodhfaspdfasd",
+    "channels": {
+        "#pepega": null,
+        "#peepoClown": "@peepoClown_log"
+    },
+    "telegram_bot_tokens": [
+        "1234567890:ABCdEfFASDJAKLSDJjfaspiodhfaspdfasd"
+    ],
+    "ignored_users": [],
+    "regex_message_filters": []
+}
