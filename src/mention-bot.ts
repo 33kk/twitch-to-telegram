@@ -1,7 +1,6 @@
 import TelegramBot from "./telegram-bot";
 import Dictionary from "./dictionary";
-import { readFileSync, existsSync, writeFileSync } from "fs";
-import { writeFile } from "fs/promises";
+import { readFileSync, existsSync, writeFileSync, promises } from "fs";
 
 const chars = "(?:\\!|\\@|\\#|\\&|\\*|\\(|\\)|\\+|\\-|\\\"|\\,|\\.|\\?|$| )";
 
@@ -76,7 +75,7 @@ export default class MentionBot {
 		setInterval(async () => {
 			if (this.needToSave) {
 				console.log("Saved notification db");
-				await writeFile(this.dbPath, JSON.stringify(this.notificationDb), "utf-8");
+				await promises.writeFile(this.dbPath, JSON.stringify(this.notificationDb), "utf-8");
 				this.needToSave = false;
 			}
 		}, 60000);
