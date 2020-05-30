@@ -12,7 +12,9 @@
     "author": "33kk",
     "license": "MIT",
     "dependencies": {
+        "@types/express": "^4.17.6",
         "@types/node": "^14.0.5",
+        "express": "^4.17.1",
         "telegraf": "^3.38.0",
         "twitch": "^4.0.10",
         "twitch-chat-client": "^4.0.10"

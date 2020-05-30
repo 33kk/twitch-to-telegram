@@ -14,7 +14,7 @@ export default class MentionBot {
 		this.dbPath = dbPath;
 		this.bot = new TelegramBot(token);
 		if (!existsSync(dbPath)) {
-			writeFileSync(dbPath, "{}", "utf-8")
+			writeFileSync(dbPath, "{}", "utf-8");
 		}
 		this.notificationDb = JSON.parse(readFileSync(dbPath, "utf-8"));
 		this.bot.bot.start((c) => {
