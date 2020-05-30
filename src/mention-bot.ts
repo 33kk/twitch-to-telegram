@@ -56,7 +56,11 @@ export default class MentionBot {
 			}
 		});
 		this.bot.bot.command("remove", (ctx) => {
-			const args = ctx.message.text.slice(7);
+			const args = ctx.message.text.slice(8);
+			if (!args) {
+				this.bot.sendMessage(ctx.chat.id.toString(), "Specify what to remove.");
+				return;
+			}
 			if (this.notificationDb[ctx.chat.id]) {
 				for (let i = 0; i < this.notificationDb[ctx.chat.id].length; i++) {
 					if (this.notificationDb[ctx.chat.id][i] === args) {
