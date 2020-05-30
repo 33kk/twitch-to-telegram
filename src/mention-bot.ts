@@ -1,6 +1,6 @@
 import TelegramBot from "./telegram-bot";
 import Dictionary from "./dictionary";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync, writeFileSync } from "fs";
 import { writeFile } from "fs/promises";
 
 const chars = "(?:\\!|\\@|\\#|\\&|\\*|\\(|\\)|\\+|\\-|\\\"|\\,|\\.|\\?|$| )";
@@ -13,6 +13,9 @@ export default class MentionBot {
 	constructor(token: string, dbPath: string) {
 		this.dbPath = dbPath;
 		this.bot = new TelegramBot(token);
+		if (!existsSync(dbPath)) {
+			writeFileSync(dbPath, "{}", "utf-8")
+		}
 		this.notificationDb = JSON.parse(readFileSync(dbPath, "utf-8"));
 		this.bot.bot.start((c) => {
 			this.bot.sendMessage(c.chat.id.toString(), "la mia Pepega");
