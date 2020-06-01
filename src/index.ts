@@ -26,7 +26,7 @@ function processMessage(channel: string, user: string, message: string, isAction
 	}
 	const date = new Date();
 	const dateString = `${date.getUTCFullYear() < 10 ? "0" + date.getUTCDate() : date.getUTCDate()}.${date.getUTCMonth() < 10 ? "0" + date.getUTCMonth() : date.getUTCMonth()}.${date.getUTCFullYear()} ${date.getUTCHours() < 10 ? "0" + date.getUTCHours() : date.getUTCHours()}:${date.getUTCMinutes() < 10 ? "0" + date.getUTCMinutes() : date.getUTCMinutes()}`;
-	const formattedMessage = `<code>${dateString} ${channel}</code>\n&lt;${user}&gt;: ${isAction ? "<i>" : ""}${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}${isAction ? "</i>" : ""}`;
+	const formattedMessage = `<code>${dateString} ${channel}</code>\n&lt;${user}&gt;: ${isAction ? "<i>" : ""}${message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}${isAction ? "</i>" : ""}`;
 	if (config.channels[channel] !== undefined) {
 		if (config.channels[channel] !== null) {
 			telegram.sendMessage(config.channels[channel], formattedMessage, true, true);

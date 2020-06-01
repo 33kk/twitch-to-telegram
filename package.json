@@ -1,6 +1,6 @@
 {
     "name": "tw-to-tg",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Twitch to Telegram logger and mention notifier",
     "main": "index.js",
     "scripts": {
